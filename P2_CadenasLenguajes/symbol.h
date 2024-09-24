@@ -27,17 +27,19 @@ class Symbol{
     public:
       //contructores
       Symbol(){};
-      //Symbol(const std::string& symbol){symbol_ = symbol;};
       Symbol(const char& symbol){symbol_ = symbol;};
 
       //getter
       char getSymbol() const {return symbol_;}
-      // char getSymbol() {return symbol_;}
-
-      // std::string getSymbol() const{return static_cast<std::string>(symbol_);};
 
       //sobrecarga del operador de salida
-      friend std::ostream& operator<<(std::ostream out, const Symbol& symbol);
+      friend std::ostream& operator<<(std::ostream& os, const Symbol& symbol){
+        os << symbol.getSymbol();
+        return os;
+      }
+
+      //sobrecarga operador de comparacion
+      friend bool operator<(const Symbol& a, const Symbol& b) { return a.getSymbol() < b.getSymbol(); }
 
     private:
       char symbol_;

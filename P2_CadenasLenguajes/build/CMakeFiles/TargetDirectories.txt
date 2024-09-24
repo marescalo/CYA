@@ -1,0 +1,3 @@
+/mnt/c/Users/04mbe/OneDrive/Escritorio/infierno/CYA/P2_CadenasLenguajes/build/CMakeFiles/p02_strings.dir
+/mnt/c/Users/04mbe/OneDrive/Escritorio/infierno/CYA/P2_CadenasLenguajes/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/04mbe/OneDrive/Escritorio/infierno/CYA/P2_CadenasLenguajes/build/CMakeFiles/rebuild_cache.dir

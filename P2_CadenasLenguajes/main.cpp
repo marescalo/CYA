@@ -20,8 +20,8 @@
 #include "chain.h"
 #include "symbol.h"
 #include "alphabet.h"
-#include "chain.cpp"
 
+//mensaje de error
 void Error(){
     std::cout << "Error, no se han introducido los parametros necesarios" << std::endl;
     std::cout << "o se han introducido mas de los necesarios." << std::endl;
@@ -29,41 +29,50 @@ void Error(){
     exit(1);
 }
 
+//función para comprobar los parametros que se le pasan al programa
 void Usage(int argc, char* argv[]){
     std::string helper = argv[1]; //ayuda si q necesito yo :')
     if(helper == "--help"){
-        std::cout << "Uso: ./p01_string fileon.txt fileout.txt opcode \n Opciones válidas para el opcode: \n 1) Alphabeto \n 2) Longitud \n 3) Inversa \n 4) Prefijos \n 5) Sufijos ";
+        std::cout << "Uso: ./p01_string fileon.txt fileout.txt opcode \n Opciones válidas para el opcode: \n 1) Alphabeto \n 2) Longitud \n 3) Inversa \n 4) Prefijos \n 5) Sufijos \n";
+        exit(0);
     }
-    else if(argc != 4){
-        Error();
-        exit(1);
-    }
-    else if((argc == 4) & ((std::stoi(argv[3]) > 5) | (std::stoi(argv[3]) < 0))){
-        Error();
-        exit(1);
+    else if (argc >= 4) {
+        if(argc != 4){
+            Error();
+            exit(1);
+        }
+        else if((argc == 4) && ((std::stoi(argv[3]) > 5) || (std::stoi(argv[3]) < 0))){
+            Error();
+            exit(1);
+        }
     }
 }
 
+//Funcion principal
 int main(int argc, char* argv[]){
   if(argc == 1){
     Error();
   }
   Usage (argc, argv);
 
+  //parámetros de entrada
   std::string kInputFileName = argv[1];
   std::string kOutputFileName = argv[2];
   std::string opecode = argv[3];
   const int kOpecode = std::stoi(opecode);
 
+  //error en caso de que no se abran bien los archivos
   std::ifstream input_file{kInputFileName, std::ios_base::in};
   if (!input_file){
     std::cout << "No se ha podido abrir el archivo" << kOpecode << " sobre el fichero de entrada." << std::endl;
     exit(1);
   }
-  std::string line;
-  std::ofstream output_file{kOutputFileName};
 
-  while(getline(input_file, line)){
+  
+  std::string line;
+  std::ofstream output_file{kOutputFileName}; //flujo del archivo de salida
+
+  while(getline(input_file, line, ' ')){
 
     Chain new_sequence = line;
 

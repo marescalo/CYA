@@ -20,20 +20,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "alphabet.h"
 
 
 const char EMPTY = '&';
-const std::string EMPTYCHAIN = "&";
-const std::string SPACE = ", ";
+const char EMPTYCHAIN = '&';
+const char COMA = ',';
+const char SPACE = ' ';
 
+//constructor de chain
 Chain::Chain(std::string& string){
 
+    //cuenta el numero de espacios que hay
     int spaces = 0;
     for(const auto& symbol : string){
         if(symbol == SPACE) ++spaces;
     }
 
     std::string chain_string;
+    //guarda la cadena y el alfabeto
     if(spaces > 0){
         int last_space = string.find_last_of(SPACE);
         int length = string.length();
@@ -44,7 +49,7 @@ Chain::Chain(std::string& string){
         std::string aux_string;
         for(int i = 0; i <= last_space; i++){
             if(string[i] == SPACE){
-                alphabet_.add(aux_string);
+                alphabet_.add(SPACE);
                 aux_string.erase();
             }
             else {
@@ -52,26 +57,30 @@ Chain::Chain(std::string& string){
             }
         }
     }
+    //la cadenas es igual al alfabeto si no hay espacios
     else{
         chain_string = string;
-        alphabet_ = string;
+        alphabet_ = Alphabet{string};
     }
 
     string_ = chain_string;
     std::string aux_string;
+    //separa el alfabeto en simbolos
     for(const auto& symbol : chain_string){
         aux_string += symbol;
-        if(alphabet_.find(aux_string)){
-            chain_.push_back(aux_string);
+        if(alphabet_.find(symbol)){
+            chain_.push_back(symbol);
             aux_string.erase();
         }
     }
 }
 
+//metodo que devuelve la longitud de la cadena
 int Chain::Longitud(){
     return chain_.size();
 }
 
+//metodo que devueve la inversa de la cadena
 std::string Chain::Inversa(){
     std::string aux;
     for(const Symbol& simbolo : chain_) {
@@ -80,6 +89,7 @@ std::string Chain::Inversa(){
     return aux;
 }
 
+//metodo que devuelve todos los prefijos de la cadena
 std::string Chain::Prefijo(){
     std::string aux,prefijos {EMPTY};
     for(const Symbol& simbolo : chain_) {
@@ -89,6 +99,7 @@ std::string Chain::Prefijo(){
     return prefijos;
 }
 
+//metodo que devuelve todos los sufijos de la cadena
 std::string Chain::Sufijo(){
     std::string aux, sufijos{EMPTY};
     for(int i = ((chain_.size()) - 1); i >= 0; i--){
@@ -97,12 +108,3 @@ std::string Chain::Sufijo(){
     }
     return sufijos;
 }
-/*
-std::string Chain::getChain(){
-    std::string chain = space;
-    for(const Symbol& simbolo : chain){
-        chain += SPACE + simbolo.getSymbol();
-    }
-    chain += SPACE;
-    return chain;
-}*/

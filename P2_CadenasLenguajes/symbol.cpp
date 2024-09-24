@@ -19,7 +19,4 @@
  #include "symbol.h"
  #include <iostream>
 
-std::ostream& operator<<(std::ostream out, const Symbol& symbol){
-    out << symbol.getSymbol();
-    return out;
-}
+

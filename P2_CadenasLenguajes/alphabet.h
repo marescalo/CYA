@@ -31,15 +31,25 @@ class Alphabet{
     //constructores
     Alphabet(){};
     Alphabet(const std::set<Symbol>& alphabet){alphabet_ = alphabet; cardinal_ = alphabet.size();};
+    Alphabet(const std::string string);
 
     //getters
     std::set<Symbol> getAlphabet() const{return alphabet_;};
     int getCardinal() const{return cardinal_;};
 
     //sobre carga de operadores
-    friend std::ostream& operator<<(std::ostream& out, const Alphabet& alphabet);
+    friend std::ostream& operator<<(std::ostream& os, const Alphabet& alphabet){
+      os << "{ ";
+      for(auto& symbol:alphabet.getAlphabet()){
+          os << symbol << ", ";
+      }
+      os << "}";
+      return os;
+    }
 
-    
+    //funciones
+    bool find(Symbol symbol);
+    void add(Symbol symbol);
 
   private:
     std::set<Symbol> alphabet_; 

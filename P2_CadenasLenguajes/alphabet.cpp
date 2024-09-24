@@ -18,14 +18,29 @@
 
 #include "alphabet.h"
 #include <iostream>
- const char COMA = ',';
- const char SPACE = ' ';
+const char COMA = ',';
+const char SPACE = ' ';
 
- std::ostream& operator<<(std::ostream out, const Alphabet& alphabet){
-    out << "{ ";
-    for(auto& symbol:alphabet.getAlphabet()){
-        out << symbol << COMA << SPACE;
+//constructor
+Alphabet::Alphabet(const std::string string){
+    for(const auto symbol : string){
+        alphabet_.insert(Symbol{symbol});
     }
-    out << "}";
-    return out;
+}
+
+//metodo para comprobar si esta dentro del alfabeto el simbolo
+bool Alphabet::find(Symbol symbol){
+    bool found = false;
+    for(const auto& elem : getAlphabet()){
+        if (symbol.getSymbol() == elem.getSymbol()) found = true;
+    }
+    return found;
+}
+
+//metodo para añadir un simbolo en caso de que no pertenezca al alfabeto
+void Alphabet::add(Symbol symbol) {
+    if(!find(symbol)) {
+        alphabet_.insert(symbol);
+        ++cardinal_;
+    }
 }
