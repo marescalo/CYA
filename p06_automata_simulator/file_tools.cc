@@ -138,7 +138,7 @@ void CheckStrings(std::string& kStringsFileName, NFA& nfa) {
     // Imprimimos la línea para ver qué contiene
     if (!line.empty()) {
       Cadena cadena{line};
-      std::cout << cadena << " --- ";
+      std::cout << line << " --- ";
       // Comprobamos si la secuencia es aceptada
       if (nfa.accepted(cadena)) {
         std::cout << "Accepted" << std::endl;

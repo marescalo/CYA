@@ -75,8 +75,7 @@ Cadena::Cadena(std::string& string) {
 // Getter de la cadena
 std::string Cadena::getCadena() const {
   std::string cadena = MARKS;
-  for (const auto& symbol : cadena_
-  ) {
+  for (const auto& symbol : cadena_) {
     cadena += SPACE + symbol.getSymbol();
   }
   cadena += SPACE + MARKS;
