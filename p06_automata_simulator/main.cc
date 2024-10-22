@@ -20,7 +20,7 @@
 #include <vector>
 #include <cstdlib> /// Exit
 
-#include "file_tools.cc"
+#include "file_tool.h"
 
 const std::string kHelpText = "Modo de empleo: ./p06_automata_simulator input.fa input.txt \n\
   Pruebe 'p06_automata_simulator --help' para mas informacion. \n\

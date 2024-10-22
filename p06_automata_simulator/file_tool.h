@@ -18,23 +18,12 @@
 #include <string>
 #include <fstream>
 #include <sstream> // stringstream
+#include "NFA.h"
 
-class file_tool {
-  private:
-    /* data */
-  public:
-    file_tool(/* args */);
-    ~file_tool();
-    int count_lines(std::string& file);
-    Alphabet line_to_alphabet(std::string& line);
-    void line_to_transitions(std::string& line, std::vector<Transition>& transitions)
-
-};
-
-file_tool::file_tool(/* args */)
-{
-}
-
-file_tool::~file_tool()
-{
-}
+int count_lines(std::string& file);
+Alphabet line_to_alphabet(std::string& line);
+void line_to_transitions(std::string& line, std::vector<Transition>& transitions);
+State line_to_state(std::string& line);
+void error_formato();
+NFA FileToNFA(std::string& file_name);
+void CheckStrings(std::string& kStringsFileName, NFA& nfa);

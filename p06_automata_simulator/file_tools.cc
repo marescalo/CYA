@@ -18,8 +18,7 @@
 #include <string>
 #include <fstream>
 #include <sstream> // stringstream
-#include "NFA.h"
-
+#include "file_tool.h"
 
 int count_lines(std::string& file) { //Cuenta lasa lineas de un fichero
   std::ifstream input_file{file, std::ios_base::in};
@@ -139,7 +138,7 @@ void CheckStrings(std::string& kStringsFileName, NFA& nfa) {
     // Imprimimos la línea para ver qué contiene
     if (!line.empty()) {
       Cadena cadena{line};
-      std::cout << Cadena << " --- ";
+      std::cout << cadena << " --- ";
       // Comprobamos si la secuencia es aceptada
       if (nfa.accepted(cadena)) {
         std::cout << "Accepted" << std::endl;

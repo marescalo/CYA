@@ -47,6 +47,11 @@ public:
   std::string suffixes();
   std::string substrings();
   std::string non_used();
+
+  friend std::ostream& operator<<(std::ostream& os, Cadena cadena) {
+    os << cadena.getString();
+    return os;
+  }
 };
 
 #endif
