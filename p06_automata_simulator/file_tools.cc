@@ -87,7 +87,7 @@ void error_formato() {
 NFA FileToNFA(std::string& file_name) {
   std::ifstream input_file{file_name, std::ios_base::in};
   std::string line;
-  /// Comprobamos que tiene al menos las 2 líneas obligatorias 
+  /// Comprobamos que tiene al menos las 2 líneas obligatorias
   int num_lines = count_lines(file_name);
   if (num_lines < 2) error_formato();
   /// Extraemos el alfabeto
