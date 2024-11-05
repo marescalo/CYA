@@ -1,21 +1,24 @@
-// Universidad de La Laguna
-// Escuela Superior de Ingenierıa y Tecnologıa
-// Grado en Ingenierıa Informatica
-// Asignatura: Computabilidad y Algoritmia
-// Curso: 2º
-// Practica 8: Gramáticas en Forma Normal de Chomsky
-// Autor: Margarita Blanca Escobar Alonso
-// Correo: alu0101567211@ull.edu.es
-// Fecha: 3/11/2024
-// Archivo p08_GramaticasFormaNormalChomskys
-// Referencias:
-//     Enlaces de interes
-//
-// Historial de revisiones
-//     3/11/2024- Creacion (primera version) del codigo
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Computabilidad y Algoritmia
+ * Práctica 8
+ *
+ * @author Esther M. Quintero (alu0101434780@ull.edu.es)
+ * @date 29 Sep 2022
+ * @brief Archivo: alphabet.cc
+ *        Implementación de la clase alfabeto
+ * 
+ * @details 
+ *    29/09/2022 - Creación del fichero
+ *    01/10/2022 - Implementación del constructor
+ *    01/10/2022 - Implementación de las funciones 
+ */
 
 #include <iostream>
 #include "alphabet.h"
+#include "symbol.h"
 
 /// Constructor
 Alphabet::Alphabet(std::string& string) {

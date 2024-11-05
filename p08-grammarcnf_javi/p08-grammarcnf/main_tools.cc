@@ -1,27 +1,27 @@
-// Universidad de La Laguna
-// Escuela Superior de Ingenierıa y Tecnologıa
-// Grado en Ingenierıa Informatica
-// Asignatura: Computabilidad y Algoritmia
-// Curso: 2º
-// Practica 8: Gramáticas en Forma Normal de Chomsky
-// Autor: Margarita Blanca Escobar Alonso
-// Correo: alu0101567211@ull.edu.es
-// Fecha: 3/11/2024
-// Archivo p08_GramaticasFormaNormalChomskys
-// Referencias:
-//     Enlaces de interes
-//
-// Historial de revisiones
-//     3/11/2024- Creacion (primera version) del codigo
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Computabilidad y Algoritmia
+ * Práctica 8
+ *
+ * @author Esther M. Quintero (alu0101434780@ull.edu.es)
+ * @date 29 Sep 2022
+ * @brief Archivo: main_tools.cc
+ *        Funciones para facilitar el programa principal
+ * 
+ * @details 
+ *    29/09/2022 - Creación del fichero
+ *    05/11/2022 - Adaptar a la práctica 6
+ *    12/11/2022 - Adaptar a la práctica 7
+ *    12/11/2022 - Adaptar a la práctica 8
+ */
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-#include <cstdlib>
-
-#include "file_tools.h"
-#include "grammar.h"
+#include <cstdlib> /// Exit
 
 const std::string kHelpText = "Modo de empleo: ./Grammar2CNF input.gra output.gra \n\
 Pruebe 'Grammar2CNF --help' para mas informacion. \n\
@@ -62,22 +62,3 @@ void Usage(int argc, char *argv[]) {
   }
 }
 
-int main(int argc, char* argv[]) {
-  /// Comprobamos los parámetros
-  if (argc == 1) { Error(argv[0]); }
-  Usage(argc, argv);
-  /// Preparamos el fichero
-  std::string kInputFileName = argv[1];
-  FileExist(kInputFileName);
-  std::string kOutputFileName = argv[2];
-  FileExist(kOutputFileName);
-  /// Llamamos al programa
-  Grammar grammar(kInputFileName);
-  grammar.check();
-  // std::cout << grammar << std::endl;
-  Grammar grammar_CNF = grammar.ConvertToCNF();
-  // std::cout << grammar_CNF << std::endl;
-  grammar_CNF.write(kOutputFileName);
-  // grammar_CNF.productions();
-  return 0;
-}

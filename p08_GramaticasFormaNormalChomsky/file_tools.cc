@@ -18,6 +18,7 @@
 #include <string>
 #include <fstream>
 #include <sstream> // stringstream
+#include "file_tools.h"
 
 /** 
  *  @brief Muestra el mensaje de error de formato

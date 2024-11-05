@@ -1,18 +1,18 @@
-// Universidad de La Laguna
-// Escuela Superior de Ingenierıa y Tecnologıa
-// Grado en Ingenierıa Informatica
-// Asignatura: Computabilidad y Algoritmia
-// Curso: 2º
-// Practica 8: Gramáticas en Forma Normal de Chomsky
-// Autor: Margarita Blanca Escobar Alonso
-// Correo: alu0101567211@ull.edu.es
-// Fecha: 3/11/2024
-// Archivo p08_GramaticasFormaNormalChomskys
-// Referencias:
-//     Enlaces de interes
-//
-// Historial de revisiones
-//     3/11/2024- Creacion (primera version) del codigo
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Computabilidad y Algoritmia
+ * Práctica 8
+ *
+ * @author Esther M. Quintero (alu0101434780@ull.edu.es)
+ * @date 12 Nov 2022
+ * @brief Archivo: grammar.cc
+ *        Implementación de la clase gramática
+ * 
+ * @details 
+ *    12/11/2022 - Creación del fichero
+ */
 
 #include "grammar.h"
 
@@ -395,7 +395,7 @@ bool Grammar::accepted(const std::string& sequence) {
     for (const auto& prod : productions_) {
       if (prod.first == state) {
         if (prod.second.size() != 1) {
-          if (prod.second[0].getChar() == std::string{elem}) {
+          if (prod.second[0].getChar() == elem) {
             string += prod.second[0].getChar();
             derivaciones += prod.second[0].getChar();
             derivaciones += prod.second[1].getChar();
@@ -410,7 +410,7 @@ bool Grammar::accepted(const std::string& sequence) {
   for (const auto& prod : productions_) {
     if (prod.first == state) {
       if (prod.second.size() == 1) {
-        if (prod.second[0].getChar() == "&") {
+        if (prod.second[0].getChar() == '&') {
           derivaciones += prod.second[0].getChar();
           break;
         }

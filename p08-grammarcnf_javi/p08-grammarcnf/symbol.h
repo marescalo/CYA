@@ -1,21 +1,26 @@
-// Universidad de La Laguna
-// Escuela Superior de Ingenierıa y Tecnologıa
-// Grado en Ingenierıa Informatica
-// Asignatura: Computabilidad y Algoritmia
-// Curso: 2º
-// Practica 8: Gramáticas en Forma Normal de Chomsky
-// Autor: Margarita Blanca Escobar Alonso
-// Correo: alu0101567211@ull.edu.es
-// Fecha: 3/11/2024
-// Archivo p08_GramaticasFormaNormalChomskys
-// Referencias:
-//     Enlaces de interes
-//
-// Historial de revisiones
-//     3/11/2024- Creacion (primera version) del codigo
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Computabilidad y Algoritmia
+ * Práctica 8
+ *
+ * @author Esther M. Quintero (alu0101434780@ull.edu.es)
+ * @date 29 Sep 2022
+ * @brief Archivo: symbol.h
+ *        Definición de la clase símbolo
+ * 
+ * @details 
+ *    29/09/2022 - Creación del fichero
+ *    30/09/2022 - Atributo y constructores
+ *    01/10/2022 - Getter y setter
+ *    08/10/2022 - Revisiones
+ *    09/10/2022 - Añadidas sobrecargas
+ */
 
 #ifndef SYMBOL_H
 #define SYMBOL_H
+
 #include <iostream>
 #include <string>
 
@@ -30,8 +35,8 @@ class Symbol {
   Symbol(const char symbol) { symbol_ = symbol; };
   
   /// Getters
-  std::string getSymbol() const { return symbol_; }; // Símbolo (symbol_)
-  std::string getChar() const { return getSymbol(); }
+  std::string getSymbol() const { return symbol_; };
+  char getChar() const { return symbol_[0]; };
   int getLength() const { return symbol_.length(); };
   /// Setter
   void setSymbol(std::string& symbol) { symbol_ = symbol; };

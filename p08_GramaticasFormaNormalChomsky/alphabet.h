@@ -20,13 +20,17 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <set>
 #include "symbol.h"
 
 const char SPACE = ' ';
+/// Para comprobaciones
+const std::vector<char> kAlphabet = {'S', 'A', 'B', 'C', 'D', 'E', 'F' , 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'K', 'R', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+std::vector<bool> Used = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 class Alphabet {
  private:
-  std::vector<Symbol> alphabet_;
+  std::set<Symbol> alphabet_;
 
  public:
   /// Constructores
@@ -34,12 +38,12 @@ class Alphabet {
   Alphabet(std::string& string);
 
   /// Getters
-  std::vector<Symbol> getAlphabet() const { return alphabet_; };
+  std::set<Symbol> getAlphabet() const { return alphabet_; };
   int getSize() const { return alphabet_.size(); };
 
   /// Funciones
-  bool find(Symbol symbol) const; //mira si un simbolo es parte del alfabeto
-  void add(Symbol symbol); //añade un simbolo al alfabeto si este no existia ya en el
+  bool find(Symbol symbol) const;
+  void add(Symbol symbol);
 
   /// Sobrecargas
   friend std::ostream& operator<<(std::ostream& out, const Alphabet& alphabet);
